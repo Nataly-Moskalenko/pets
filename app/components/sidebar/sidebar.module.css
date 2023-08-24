@@ -58,7 +58,7 @@
 }
 
 .voteImage {
-  margin-top: 33px;
+  margin: 33px auto;
 }
 
 .buttonText {
@@ -90,7 +90,7 @@
 }
 
 .breedsImage {
-  margin-top: 13px;
+  margin: 13px auto;
 }
 
 .gallery {
@@ -99,4 +99,8 @@
   background-color: #ffd280;
   border-radius: 20px;
   border: 4px solid rgba(255, 255, 255, 0.6);
+}
+
+.galleryImage {
+  margin: 0 auto;
 }

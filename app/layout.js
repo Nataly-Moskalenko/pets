@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={jost.className} style={{ display: 'flex' }}>
         <Sidebar />
-        <main style={{marginLeft: 'auto', flexGrow: 'grow'}}>{children}</main>
+        <main style={{marginLeft: 'auto'}}>{children}</main>
       </body>
     </html>
   );

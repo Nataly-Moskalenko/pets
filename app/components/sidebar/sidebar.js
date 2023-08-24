@@ -17,7 +17,7 @@ export default function Sidebar() {
               <div className={css.vote}>
                 <Image
                   src="/vote-table.png"
-                  alt="Girl and pet"
+                  alt="Vote table"
                   width={100}
                   height={124}
                   className={css.voteImage}
@@ -33,7 +33,7 @@ export default function Sidebar() {
               <div className={css.breeds}>
                 <Image
                   src="/pet-breeds.png"
-                  alt="Girl and pet"
+                  alt="Pet breeds"
                   width={117}
                   height={163}
                   className={css.breedsImage}
@@ -49,7 +49,7 @@ export default function Sidebar() {
               <div className={css.gallery}>
                 <Image
                   src="/images-search.png"
-                  alt="Girl and pet"
+                  alt="Images search"
                   width={112}
                   height={190}
                   className={css.galleryImage}
