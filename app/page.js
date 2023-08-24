@@ -1,10 +1,7 @@
-import Image from 'next/image';
-import styles from './page.module.css';
-
-import Home from './components/home';
-import Breeds from './components/breeds';
-import Voting from './components/voting';
-import Gallery from './components/gallery';
+import Home from './components/home/home';
+import Breeds from './components/breeds/breeds';
+import Voting from './components/voting/voting';
+import Gallery from './components/gallery/gallery';
 
 export default function HomeMain() {
   return (

@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Sidebar from './components/sidebar/sidebar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,19 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{display: 'flex'}}>
-        <div style={{ width: 665, height: 'vh' }}>
-          <p>PetsPaw</p>
-          <h1>Hi!</h1>
-          <p>Welcome to MacPaw Bootcamp 2023</p>
-          <h2>Lets start using The Cat API</h2>
-          <nav>
-            <a href="#Voting">Voting</a>
-            <a href="#Breeds">Breeds</a>
-            <a href="#Gallery">Gallery</a>
-          </nav>
-        </div>
-        <div>{children}</div>
+      <body className={inter.className} style={{ display: 'flex' }}>
+        <Sidebar />
+        <div style={{marginLeft: 'auto', flexGrow: 'grow'}}>{children}</div>
       </body>
     </html>
   );
