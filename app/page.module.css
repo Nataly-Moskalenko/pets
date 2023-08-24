@@ -1,0 +1,19 @@
+.homeInner { 
+  width: 680px;
+  height: 840px;
+  border-radius: 20px;
+  margin: 30px 30px 30px 65px;
+  background-color: #fbe0dc; 
+}
+
+.homeImage {
+  position: absolute;
+  right: 0;
+  top: 0;  
+  background-image: url(/home.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 775px;
+  height: 900px;  
+}

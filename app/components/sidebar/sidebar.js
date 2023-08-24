@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import css from './sidebar.module.css';
 import Logo from '../logo/logo';
+import Link from 'next/link';
 
 export default function Sidebar() {
   return (
@@ -12,7 +13,7 @@ export default function Sidebar() {
         <h2 className={css.subtitle}>Lets start using The Cat API</h2>
         <nav className={css.nav}>
           <button type="button" className={css.sidebarButton}>
-            <a href="#Voting">
+            <Link href="/voting">
               <div className={css.vote}>
                 <Image
                   src="/vote-table.png"
@@ -25,10 +26,10 @@ export default function Sidebar() {
               <div className={css.textWrapper}>
                 <p className={css.buttonText}>Voting</p>
               </div>
-            </a>
+            </Link>
           </button>
           <button type="button" className={css.sidebarButton}>
-            <a href="#Breeds">
+            <Link href="/breeds">
               <div className={css.breeds}>
                 <Image
                   src="/pet-breeds.png"
@@ -41,10 +42,10 @@ export default function Sidebar() {
               <div className={css.textWrapper}>
                 <p className={css.buttonText}>Breeds</p>
               </div>
-            </a>
+            </Link>
           </button>
           <button type="button" className={css.sidebarButton}>
-            <a href="#Gallery">
+            <Link href="/gallery">
               <div className={css.gallery}>
                 <Image
                   src="/images-search.png"
@@ -57,7 +58,7 @@ export default function Sidebar() {
               <div className={css.textWrapper}>
                 <p className={css.buttonText}>Gallery</p>
               </div>
-            </a>
+            </Link>
           </button>
         </nav>
       </div>

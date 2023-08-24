@@ -1,8 +1,8 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Jost } from 'next/font/google';
 import Sidebar from './components/sidebar/sidebar';
 
-const inter = Inter({ subsets: ['latin'] });
+const jost = Jost({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'PetsPaw',
@@ -12,9 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{ display: 'flex' }}>
+      <body className={jost.className} style={{ display: 'flex' }}>
         <Sidebar />
-        <div style={{marginLeft: 'auto', flexGrow: 'grow'}}>{children}</div>
+        <main style={{marginLeft: 'auto', flexGrow: 'grow'}}>{children}</main>
       </body>
     </html>
   );
