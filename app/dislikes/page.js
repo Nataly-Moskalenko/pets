@@ -10,8 +10,8 @@ import Header from '@/app/components/header/header';
 export default function Dislikes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const dislikes = window.localStorage.getItem('dislikes')
-    ? JSON.parse(window.localStorage.getItem('dislikes'))
+  const dislikes = localStorage.getItem('dislikes')
+    ? JSON.parse(localStorage.getItem('dislikes'))
     : [];
 
   const handleSubmit = (e) => {
@@ -19,11 +19,6 @@ export default function Dislikes() {
     const form = e.target;
     console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
-    // if (form.elements.query.value === '') {
-    //   toast.info('Please enter your search query.');
-    //   return setSearchParams({});
-    // }
-    // setSearchParams({ query: form.elements.query.value });
   };
 
   return (

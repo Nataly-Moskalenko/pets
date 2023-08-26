@@ -13,24 +13,24 @@ export default function VotingLayout() {
   const router = useRouter();
 
   const onClickLikes = () => {
-    const likes = JSON.parse(window.localStorage.getItem('likes')) || [];
+    const likes = JSON.parse(localStorage.getItem('likes')) || [];
     console.log(pets);
     likes.push(pets);
-    window.localStorage.setItem('likes', JSON.stringify(likes));
+    localStorage.setItem('likes', JSON.stringify(likes));
   };
 
   const onClickDislikes = () => {
-    const dislikes = JSON.parse(window.localStorage.getItem('dislikes')) || [];
+    const dislikes = JSON.parse(localStorage.getItem('dislikes')) || [];
     console.log(pets);
     dislikes.push(pets);
-    window.localStorage.setItem('dislikes', JSON.stringify(dislikes));
+    localStorage.setItem('dislikes', JSON.stringify(dislikes));
   };
 
   const onClickFav = () => {
-    const fav = JSON.parse(window.localStorage.getItem('fav')) || [];
+    const fav = JSON.parse(localStorage.getItem('fav')) || [];
     console.log(pets);
     fav.push(pets);
-    window.localStorage.setItem('fav', JSON.stringify(fav));
+    localStorage.setItem('fav', JSON.stringify(fav));
   };
 
   useEffect(() => {
@@ -53,11 +53,6 @@ export default function VotingLayout() {
     const form = e.target;
     console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
-    // if (form.elements.query.value === '') {
-    //   toast.info('Please enter your search query.');
-    //   return setSearchParams({});
-    // }
-    // setSearchParams({ query: form.elements.query.value });
   };
 
   return (

@@ -10,20 +10,15 @@ import Header from '@/app/components/header/header';
 export default function Likes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const likes = window.localStorage.getItem('likes')
-    ? JSON.parse(window.localStorage.getItem('likes'))
+  const likes = localStorage.getItem('likes')
+    ? JSON.parse(localStorage.getItem('likes'))
     : [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     console.log(form.elements.query.value);
-    setQuery(form.elements.query.value);
-    // if (form.elements.query.value === '') {
-    //   toast.info('Please enter your search query.');
-    //   return setSearchParams({});
-    // }
-    // setSearchParams({ query: form.elements.query.value });
+    setQuery(form.elements.query.value);    
   };
 
   return (
