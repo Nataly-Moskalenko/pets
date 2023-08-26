@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import css from './breeds.module.css';
 import Header from '../components/header/header';
 import { BreedsMenu } from '../components/breedsmenu/breedsmenu';
+import { ItemsMenu } from '../components/itemsmenu/itemsmenu';
 
 export default function Breeds() {
   const [pets, setPets] = useState([]);
@@ -28,16 +29,18 @@ export default function Breeds() {
     fetchPats();
   }, []);
 
+  const breedsMenuData = (data) => {
+    console.log(data);
+  };
+  const itemsMenuData = (data) => {
+    console.log(data);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
-    // if (form.elements.query.value === '') {
-    //   toast.info('Please enter your search query.');
-    //   return setSearchParams({});
-    // }
-    // setSearchParams({ query: form.elements.query.value });
   };
 
   return (
@@ -57,7 +60,8 @@ export default function Breeds() {
             </svg>
           </button>
           <h2 className={css.title}>Breeds</h2>
-          <BreedsMenu/>
+          <BreedsMenu setter={breedsMenuData} />
+          <ItemsMenu setter={itemsMenuData} />
         </div>
         <div className={css.parent}>
           {pets &&

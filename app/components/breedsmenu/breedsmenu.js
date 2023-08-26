@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import css from './breedsmenu.module.css';
 
-export const BreedsMenu = () => {
+export const BreedsMenu = ({ setter }) => {
   const [breedsOption, setBreedsOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [breeds, setBreeds] = useState([]);
@@ -23,11 +23,12 @@ export const BreedsMenu = () => {
   const handleBreedsChange = (event) => {
     event.stopPropagation();
     setBreedsOption(event.target.innerText);
+    setter(event.target.innerText);
     setIsOpen(false);
   };
 
   const handleClick = (event) => {
-    // event.stopPropagation();
+    event.stopPropagation();
     setIsOpen(!isOpen);
   };
 
@@ -37,14 +38,8 @@ export const BreedsMenu = () => {
         {breedsOption === '' ? 'All breeds' : breedsOption}
       </button>
 
-      <div
-        className={css.breedsMenu}
-        // onClick={(e) => e.stopPropagation()}
-      >
-        <ul
-          className={isOpen ? css.breedsMenuOpen : css.breedsMenu}
-          style={{ scrollBehavior: 'smooth' }}
-        >
+      <div className={css.breedsMenu} onClick={(e) => e.stopPropagation()}>
+        <ul className={isOpen ? css.breedsMenuOpen : css.breedsMenu}>
           {breeds.map((item) => (
             <li key={item.id} onClick={handleBreedsChange}>
               {item.name}

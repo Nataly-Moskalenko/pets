@@ -1,10 +1,10 @@
 .menuButton {
-  width: 226px;
+  width: 101px;
   height: 40px;
   border-radius: 10px;
   background-color: #f8f8f7;
-  color: #8c8c8c;
-  font-size: 16px;
+  color: #8c8c8c; 
+  font-size: 16px; 
   font-weight: 400;
   line-height: 24px;
   cursor: pointer;
@@ -13,17 +13,17 @@
   text-align: left;
 }
 
-.breedsMenuOpen {
-  position: absolute;
-  top: 0px;
-  width: 226px;
-  height: 300px;
+.itemsMenuOpen {
+  position: absolute; 
+  top: 0px; 
+  width: 164px;
+  height: 164px;
   border-radius: 30px;
   background-color: #fff;
   color: #8c8c8c;
-  font-size: 16px;
+  font-size: 16px;  
   font-weight: 400;
-  line-height: 24px;
+  line-height: 24px; 
   cursor: pointer;
   overflow: auto;  
   padding: 16px;
@@ -32,11 +32,11 @@
   gap: 12px;
 }
 
-.breedsMenu {
+.itemsMenu {
   height: 0;
   overflow: hidden;
 }
 
-.menuWrapper {
+.menuWrapper { 
   position: relative;
 }
