@@ -42,7 +42,6 @@
   padding-top: 5px;
 }
 
-
 .div1 {
   grid-area: 1 / 1 / 3 / 2;
   width: 200px;
@@ -108,4 +107,30 @@
   grid-auto-rows: 140px;
   gap: 20px;
   width: 640px;
+}
+
+.allMenuWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 640px;
+  height: 156px;
+  border-radius: 20px;
+  background: #f8f8f7;
+  margin-top: 20px;
+  padding: 10px 20px 20px 20px;
+}
+
+.menuItem {
+  width: 290px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: white;
+  color: #1d1d1d;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  border: none;  
+  text-align: left;
 }

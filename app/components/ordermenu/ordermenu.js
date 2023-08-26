@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import css from './itemsmenu.module.css';
+import css from './ordermenu.module.css';
 
-export const ItemsMenu = ({ setter, items, itemText }) => {
+export const OrderMenu = ({ setter }) => {
   const [itemsOption, setItemsOption] = useState('');
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
+  const items = ['Random', 'Desc', 'Asc'];
 
   const handleItemsChange = (event) => {
     event.stopPropagation();
@@ -20,12 +21,12 @@ export const ItemsMenu = ({ setter, items, itemText }) => {
   return (
     <div className={css.menuWrapper}>
       <button className={css.menuButton} onClick={handleClick}>
-        {itemsOption === '' ? itemText : itemsOption}
+        {itemsOption === '' ? 'Random' : itemsOption}
       </button>
 
       <div className={css.itemsMenu} onClick={(e) => e.stopPropagation()}>
         <ul className={isOpen ? css.itemsMenuOpen : css.itemsMenu}>
-          {items?.map((item, i) => (
+          {items.map((item, i) => (
             <li key={i + 1} onClick={handleItemsChange}>
               {item}
             </li>

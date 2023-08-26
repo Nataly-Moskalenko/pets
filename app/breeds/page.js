@@ -13,27 +13,36 @@ export default function Breeds() {
   const [pets, setPets] = useState([]);
   const [query, setQuery] = useState('');
   const router = useRouter();
+  const [limit, setLimit] = useState('10');
+  const [breedName, setBreedName] = useState('');
+  const items = ['Limit: 5', 'Limit: 10', 'Limit: 15', 'Limit: 20'];
 
   useEffect(() => {
-    async function fetchPats() {
+    async function fetchBreeds() {
       try {
-        const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10`);
+        const response = await fetch(
+          'https://api.thecatapi.com/v1/images/search?limit=' +
+            limit +
+            '&name=' +
+            breedName +
+            '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+        );
         const data = await response.json();
-        console.log(data);
         setPets(data);
       } catch (error) {
         console.log(error);
       }
     }
 
-    fetchPats();
-  }, []);
+    fetchBreeds();
+  }, [limit, breedName]);
 
   const breedsMenuData = (data) => {
-    console.log(data);
+    setBreedName(data);
   };
+
   const itemsMenuData = (data) => {
-    console.log(data);
+    setLimit(data.split(' ')[1]);
   };
 
   const handleSubmit = (e) => {
@@ -60,8 +69,8 @@ export default function Breeds() {
             </svg>
           </button>
           <h2 className={css.title}>Breeds</h2>
-          <BreedsMenu setter={breedsMenuData} />
-          <ItemsMenu setter={itemsMenuData} />
+          <BreedsMenu setter={breedsMenuData} menuText="All breeds" />
+          <ItemsMenu setter={itemsMenuData} items={items} itemText="Limit: 10" />
         </div>
         <div className={css.parent}>
           {pets &&

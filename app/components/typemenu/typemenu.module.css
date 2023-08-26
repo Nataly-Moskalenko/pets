@@ -1,9 +1,9 @@
 .menuButton {
-  width: 226px;
+  width: 290px;
   height: 40px;
   border-radius: 10px;
-  background-color: #f8f8f7;
-  color: #8c8c8c;
+  background-color: white;
+  color: #1d1d1d;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -13,11 +13,11 @@
   text-align: left;
 }
 
-.breedsMenuOpen {
+.itemsMenuOpen {
   position: absolute;
   top: 0px;
-  width: 226px;
-  height: 300px;
+  width: 164px;
+  height: 164px;
   border-radius: 30px;
   background-color: #fff;
   color: #8c8c8c;
@@ -32,7 +32,7 @@
   gap: 12px;
 }
 
-.breedsMenu {
+.itemsMenu {
   height: 0;
   overflow: hidden;
 }

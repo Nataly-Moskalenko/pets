@@ -6,37 +6,64 @@ import { useRouter } from 'next/navigation';
 
 import css from './gallery.module.css';
 import Header from '../components/header/header';
+import { BreedsMenu } from '../components/breedsmenu/breedsmenu';
+import { ItemsMenu } from '../components/itemsmenu/itemsmenu';
+import { OrderMenu } from '../components/ordermenu/ordermenu';
+import { TypeMenu } from '../components/typemenu/typemenu';
 
 export default function Gallery() {
   const [pets, setPets] = useState([]);
   const [query, setQuery] = useState('');
   const router = useRouter();
+  const [limit, setLimit] = useState('5');
+  const [breedName, setBreedName] = useState('');
+  const [order, setOrder] = useState('');
+  const [type, setType] = useState('');
+  const items = ['5 items per page', '10 items per page', '15 items per page', '20 items per page'];
 
   useEffect(() => {
-    async function fetchPats() {
+    async function fetchBreeds() {
       try {
-        const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10`);
+        const response = await fetch(
+          'https://api.thecatapi.com/v1/images/search?limit=' +
+            limit +
+            '&name=' +
+            breedName +
+            '&order=' +
+            order +
+            '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+        );
         const data = await response.json();
-        console.log(data);
         setPets(data);
       } catch (error) {
         console.log(error);
       }
     }
 
-    fetchPats();
-  }, []);
+    fetchBreeds();
+  }, [limit, breedName, order]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
-    // if (form.elements.query.value === '') {
-    //   toast.info('Please enter your search query.');
-    //   return setSearchParams({});
-    // }
-    // setSearchParams({ query: form.elements.query.value });
+  };
+
+  const breedsMenuData = (data) => {
+    setBreedName(data);
+  };
+
+  const itemsMenuData = (data) => {
+    setLimit(data.split(' ')[0]);
+  };
+
+  const orderMenuData = (data) => {
+    setOrder(data.toUpperCase());
+  };
+
+  const typeMenuData = (data) => {
+    setType(data);
   };
 
   return (
@@ -56,6 +83,20 @@ export default function Gallery() {
             </svg>
           </button>
           <h2 className={css.title}>Gallery</h2>
+        </div>
+        <div className={css.allMenuWrapper}>
+          <div className={css.menuItem}>
+            <OrderMenu setter={orderMenuData} />
+          </div>
+          <div className={css.menuItem}>
+            <TypeMenu setter={typeMenuData} />
+          </div>
+          <div className={css.menuItem}>
+            <BreedsMenu setter={breedsMenuData} menuText="None" />
+          </div>
+          <div className={css.menuItem}>
+            <ItemsMenu setter={itemsMenuData} items={items} itemText="5 items per page" />
+          </div>          
         </div>
         <div className={css.parent}>
           {pets &&

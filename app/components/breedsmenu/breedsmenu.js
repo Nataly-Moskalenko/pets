@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import css from './breedsmenu.module.css';
 
-export const BreedsMenu = ({ setter }) => {
+export const BreedsMenu = ({ setter, menuText }) => {
   const [breedsOption, setBreedsOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [breeds, setBreeds] = useState([]);
@@ -35,7 +35,7 @@ export const BreedsMenu = ({ setter }) => {
   return (
     <div className={css.menuWrapper}>
       <button className={css.menuButton} onClick={handleClick}>
-        {breedsOption === '' ? 'All breeds' : breedsOption}
+        {breedsOption === '' ? menuText : breedsOption}
       </button>
 
       <div className={css.breedsMenu} onClick={(e) => e.stopPropagation()}>
