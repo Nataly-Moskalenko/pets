@@ -9,21 +9,7 @@ import Header from '@/app/components/header/header';
 export default function Likes() {
   const [pets, setPets] = useState([]);
   const [query, setQuery] = useState('');
-
-  useEffect(() => {
-    async function fetchPats() {
-      try {
-        const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=10`);
-        const data = await response.json();
-        console.log(data);
-        setPets(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    fetchPats();
-  }, []);
+  const likes = JSON.parse(localStorage.getItem('likes')) || [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,8 +44,8 @@ export default function Likes() {
           <h2 className={css.title}>Likes</h2>
         </div>
         <div className={css.parent}>
-          {pets &&
-            pets.map((pet, i) => (
+          {likes &&
+            likes.map((pet, i) => (
               <div key={i + 1} className={css['div' + (i + 1)]}>
                 <Image src={pet.url} alt="cat" width={420} height={300} className={css.image} />
               </div>

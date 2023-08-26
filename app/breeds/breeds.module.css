@@ -1,9 +1,9 @@
 .breeds {
   width: 775px;
-  height: 100vh;
+  /* height: 100vh; */
   padding-top: 30px;
   padding-right: 30px;
-  padding-bottom: 18px;
+  padding-bottom: 30px;
 }
 
 .breedsMain {
@@ -97,6 +97,7 @@
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  object-fit: cover;
 }
 
 .parent {

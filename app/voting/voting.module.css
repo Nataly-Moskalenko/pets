@@ -3,7 +3,7 @@
   height: 100vh;
   padding-top: 30px;
   padding-right: 30px;
-  padding-bottom: 18px;
+  padding-bottom: 30px;
 }
 
 .votingMain {
@@ -11,7 +11,8 @@
   border-radius: 20px;
   background: #fff;
   width: 680px;
-  height: 782px;
+  /* height: calc(100vh - 130px); */
+  /* height: 770px; */
   padding: 20px;
 }
 
@@ -45,7 +46,48 @@
 
 .imagePat {
   height: 360px;
-  width: auto;
+  width: 640px;
   margin-top: 20px;
   border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 52px;
+}
+
+.buttonsWrapper {
+  position: relative;
+}
+
+.votingButtons {
+  display: flex; 
+  width: 252px;
+  position: absolute;
+  right: 186px;
+  bottom: 10px;
+}
+
+.buttonLike {
+  width: 80px;
+  height: 80px;
+  background-color: #97eab9;
+  border: 4px solid white;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.buttonFav {
+  width: 80px;
+  height: 80px;
+  background-color: #ff868e;
+  border: 4px solid white;
+  border-left: none;
+  border-right: none;
+}
+
+.buttonDislike {
+  width: 80px;
+  height: 80px;
+  background-color: #ffd280;
+  border: 4px solid white;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
