@@ -1,17 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import css from './dislikes.module.css';
+import css from './favourites.module.css';
 import Header from '@/app/components/header/header';
 
-export default function Dislikes() {
-  const [pets, setPets] = useState([]);
+export default function Favourites() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const dislikes = JSON.parse(localStorage.getItem('dislikes')) || [];
+  const fav = window.localStorage.getItem('fav')
+    ? JSON.parse(window.localStorage.getItem('fav'))
+    : [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,11 +42,12 @@ export default function Dislikes() {
               </defs>
             </svg>
           </button>
-          <h2 className={css.title}>Dislikes</h2>
+          <h2 className={css.title}>Favourites</h2>
         </div>
         <div className={css.parent}>
-          {dislikes &&
-            dislikes.map((pet, i) => (
+          {fav.length === 0 && <p className={css.default}>No item found</p>}
+          {fav &&
+            fav.map((pet, i) => (
               <div key={i + 1} className={css['div' + (i + 1)]}>
                 <Image src={pet.url} alt="cat" width={420} height={300} className={css.image} />
               </div>

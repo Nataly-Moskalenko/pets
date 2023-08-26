@@ -1,9 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import css from './sidebar.module.css';
 import Logo from '../logo/logo';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
+  const pathname = usePathname();
   return (
     <div className={css.sidebar}>
       <Logo />
@@ -13,7 +17,7 @@ export default function Sidebar() {
         <h2 className={css.subtitle}>Lets start using The Cat API</h2>
         <nav className={css.nav}>
           <button type="button" className={css.sidebarButton}>
-            <Link href="/voting">
+            <Link href="/voting" className={'/voting' === pathname && css.active}>
               <div className={css.vote}>
                 <Image
                   src="/vote-table.png"
@@ -29,7 +33,7 @@ export default function Sidebar() {
             </Link>
           </button>
           <button type="button" className={css.sidebarButton}>
-            <Link href="/breeds">
+            <Link href="/breeds" className={'/breeds' === pathname && css.active}>
               <div className={css.breeds}>
                 <Image
                   src="/pet-breeds.png"
@@ -45,7 +49,7 @@ export default function Sidebar() {
             </Link>
           </button>
           <button type="button" className={css.sidebarButton}>
-            <Link href="/gallery">
+            <Link href="/gallery" className={'/gallery' === pathname && css.active}>
               <div className={css.gallery}>
                 <Image
                   src="/images-search.png"

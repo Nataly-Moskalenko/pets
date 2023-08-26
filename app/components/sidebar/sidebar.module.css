@@ -64,9 +64,7 @@
 .buttonText {
   color: #ff868e;
   text-align: center;
-  /* font-family: Jost; */
   font-size: 12px;
-  /* font-style: normal; */
   font-weight: 500;
   line-height: 16px; /* 133.333% */
   letter-spacing: 2px;
@@ -75,7 +73,7 @@
 
 .textWrapper {
   border-radius: 10px;
-  background: #fff;
+  background-color: #fff;
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -103,4 +101,12 @@
 
 .galleryImage {
   margin: 0 auto;
+}
+
+.active .textWrapper {
+  background-color: #ff868e;
+}
+
+.active .buttonText {
+  color: white;
 }

@@ -1,17 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-import css from './favourites.module.css';
+import css from './likes.module.css';
 import Header from '@/app/components/header/header';
 
-export default function Favourites() {
-  const [pets, setPets] = useState([]);
+export default function Likes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const fav = JSON.parse(localStorage.getItem('fav')) || [];
+  const likes = window.localStorage.getItem('likes')
+    ? JSON.parse(window.localStorage.getItem('likes'))
+    : [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,11 +42,12 @@ export default function Favourites() {
               </defs>
             </svg>
           </button>
-          <h2 className={css.title}>Favourites</h2>
+          <h2 className={css.title}>Likes</h2>
         </div>
         <div className={css.parent}>
-          {fav &&
-            fav.map((pet, i) => (
+          {likes.length === 0 && <p className={css.default}>No item found</p>}
+          {likes &&
+            likes.map((pet, i) => (
               <div key={i + 1} className={css['div' + (i + 1)]}>
                 <Image src={pet.url} alt="cat" width={420} height={300} className={css.image} />
               </div>

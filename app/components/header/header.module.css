@@ -38,10 +38,28 @@
   border: none;
 }
 
-.buttonLink {
+.link .svgLink {
   width: 60px;
   height: 60px;
   border-radius: 20px;
-  background: #fff;
+  background-color: #fff;
   border: none;
+  padding: 15px;
 }
+
+.active .svgLink {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #ff868e;
+  border: none;
+  padding: 15px;
+}
+
+.active svg {  
+  fill: white;
+}
+.link svg {  
+  fill: #ff868e;
+}
+

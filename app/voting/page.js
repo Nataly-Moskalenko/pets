@@ -13,21 +13,21 @@ export default function VotingLayout() {
   const router = useRouter();
 
   const onClickLikes = () => {
-    const likes = JSON.parse(localStorage.getItem('likes')) || [];
+    const likes = JSON.parse(window.localStorage.getItem('likes')) || [];
     console.log(pets);
     likes.push(pets);
     window.localStorage.setItem('likes', JSON.stringify(likes));
   };
 
   const onClickDislikes = () => {
-    const dislikes = JSON.parse(localStorage.getItem('dislikes')) || [];
+    const dislikes = JSON.parse(window.localStorage.getItem('dislikes')) || [];
     console.log(pets);
     dislikes.push(pets);
     window.localStorage.setItem('dislikes', JSON.stringify(dislikes));
   };
 
   const onClickFav = () => {
-    const fav = JSON.parse(localStorage.getItem('fav')) || [];
+    const fav = JSON.parse(window.localStorage.getItem('fav')) || [];
     console.log(pets);
     fav.push(pets);
     window.localStorage.setItem('fav', JSON.stringify(fav));
