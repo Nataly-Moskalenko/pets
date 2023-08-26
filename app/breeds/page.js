@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import css from './breeds.module.css';
 import Header from '../components/header/header';
+import { BreedsMenu } from '../components/breedsmenu/breedsmenu';
 
 export default function Breeds() {
   const [pets, setPets] = useState([]);
@@ -56,6 +57,7 @@ export default function Breeds() {
             </svg>
           </button>
           <h2 className={css.title}>Breeds</h2>
+          <BreedsMenu/>
         </div>
         <div className={css.parent}>
           {pets &&

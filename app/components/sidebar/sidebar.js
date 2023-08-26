@@ -17,7 +17,7 @@ export default function Sidebar() {
         <h2 className={css.subtitle}>Lets start using The Cat API</h2>
         <nav className={css.nav}>
           <button type="button" className={css.sidebarButton}>
-            <Link href="/voting" className={'/voting' === pathname && css.active}>
+            <Link href="/voting" className={'/voting' === pathname ? css.active : css.link}>
               <div className={css.vote}>
                 <Image
                   src="/vote-table.png"
@@ -33,7 +33,7 @@ export default function Sidebar() {
             </Link>
           </button>
           <button type="button" className={css.sidebarButton}>
-            <Link href="/breeds" className={'/breeds' === pathname && css.active}>
+            <Link href="/breeds" className={'/breeds' === pathname ? css.active : css.link}>
               <div className={css.breeds}>
                 <Image
                   src="/pet-breeds.png"
@@ -49,7 +49,7 @@ export default function Sidebar() {
             </Link>
           </button>
           <button type="button" className={css.sidebarButton}>
-            <Link href="/gallery" className={'/gallery' === pathname && css.active}>
+            <Link href="/gallery" className={'/gallery' === pathname ? css.active : css.link}>
               <div className={css.gallery}>
                 <Image
                   src="/images-search.png"
