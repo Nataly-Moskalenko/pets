@@ -10,7 +10,7 @@ import Header from '@/app/components/header/header';
 export default function Dislikes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const dislikes = localStorage.getItem('dislikes')
+  const dislikes = window?.localStorage?.getItem('dislikes')
     ? JSON.parse(localStorage.getItem('dislikes'))
     : [];
 

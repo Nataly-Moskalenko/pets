@@ -10,15 +10,13 @@ import Header from '@/app/components/header/header';
 export default function Favourites() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const fav = localStorage.getItem('fav')
-    ? JSON.parse(localStorage.getItem('fav'))
-    : [];
+  const fav = window?.localStorage?.getItem('fav') ? JSON.parse(localStorage.getItem('fav')) : [];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     console.log(form.elements.query.value);
-    setQuery(form.elements.query.value);    
+    setQuery(form.elements.query.value);
   };
 
   return (

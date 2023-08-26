@@ -10,7 +10,7 @@ import Header from '@/app/components/header/header';
 export default function Likes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const likes = localStorage.getItem('likes')
+  const likes = window?.localStorage?.getItem('likes')
     ? JSON.parse(localStorage.getItem('likes'))
     : [];
 
