@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import css from './likes.module.css';
@@ -10,9 +10,15 @@ import Header from '@/app/components/header/header';
 export default function Likes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const likes = window?.localStorage?.getItem('likes')
-    ? JSON.parse(localStorage.getItem('likes'))
-    : [];
+  const [likes, setLikes] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('likes')) {
+      setLikes(JSON.parse(localStorage.getItem('likes')));
+    } else {
+      setLikes([]);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

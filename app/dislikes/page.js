@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import css from './dislikes.module.css';
@@ -10,9 +10,15 @@ import Header from '@/app/components/header/header';
 export default function Dislikes() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const dislikes = window?.localStorage?.getItem('dislikes')
-    ? JSON.parse(localStorage.getItem('dislikes'))
-    : [];
+  const [dislikes, setDislikes] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('dislikes')) {
+      setDislikes(JSON.parse(localStorage.getItem('dislikes')));
+    } else {
+      setDislikes([]);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

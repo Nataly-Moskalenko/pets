@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 import css from './favourites.module.css';
@@ -10,7 +10,15 @@ import Header from '@/app/components/header/header';
 export default function Favourites() {
   const [query, setQuery] = useState('');
   const router = useRouter();
-  const fav = window?.localStorage?.getItem('fav') ? JSON.parse(localStorage.getItem('fav')) : [];
+  const [fav, setFav] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('fav')) {
+      setFav(JSON.parse(localStorage.getItem('fav')));
+    } else {
+      setFav([]);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();

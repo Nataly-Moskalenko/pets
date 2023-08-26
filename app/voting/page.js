@@ -12,27 +12,45 @@ export default function VotingLayout() {
   const [query, setQuery] = useState('');
   const router = useRouter();
 
+  const [likes, setLikes] = useState([]);
+  const [dislikes, setDislikes] = useState([]);
+  const [fav, setFav] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('likes')) {
+      setLikes(JSON.parse(localStorage.getItem('likes')));
+    } else {
+      setLikes([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem('dislikes')) {
+      setDislikes(JSON.parse(localStorage.getItem('dislikes')));
+    } else {
+      setDislikes([]);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem('fav')) {
+      setFav(JSON.parse(localStorage.getItem('fav')));
+    } else {
+      setFav([]);
+    }
+  }, []);
+
   const onClickLikes = () => {
-    const likes = window?.localStorage?.getItem('likes')
-      ? JSON.parse(localStorage.getItem('likes'))
-      : [];
-    console.log(pets);
     likes.push(pets);
     localStorage.setItem('likes', JSON.stringify(likes));
   };
 
   const onClickDislikes = () => {
-    const dislikes = window?.localStorage?.getItem('dislikes')
-      ? JSON.parse(localStorage.getItem('dislikes'))
-      : [];
-    console.log(pets);
     dislikes.push(pets);
     localStorage.setItem('dislikes', JSON.stringify(dislikes));
   };
 
   const onClickFav = () => {
-    const fav = window?.localStorage?.getItem('fav') ? JSON.parse(localStorage.getItem('fav')) : [];
-    console.log(pets);
     fav.push(pets);
     localStorage.setItem('fav', JSON.stringify(fav));
   };
