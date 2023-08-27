@@ -1,4 +1,4 @@
-## CarpTravel
+## PetsPaw
 
 This project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -20,7 +20,7 @@ Also, the gallery contains a button, by clicking on which you can download new a
   <img src="./public/Pets2.jpg" width="1200" height="auto"/>
   <img src="./public/Pets3.jpg" width="1200" height="auto"/>
   <img src="./public/Pets4.jpg" width="1200" height="auto"/>
-  <img src="./public/Pets5.jpg" width="1200" height="auto"/>
   <img src="./public/Pets6.jpg" width="1200" height="auto"/>
   <img src="./public/Pets7.jpg" width="1200" height="auto"/>
+  <img src="./public/Pets5.jpg" width="1200" height="auto"/>
 </div>

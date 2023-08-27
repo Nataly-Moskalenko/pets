@@ -4,13 +4,17 @@ import Image from 'next/image';
 import css from './sidebar.module.css';
 import Logo from '../logo/logo';
 import Link from 'next/link';
+import { ThemeMenu } from '../thememenu/thememenu';
 import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
   const pathname = usePathname();
   return (
     <div className={css.sidebar}>
-      <Logo />
+      <div className={css.sidebarHeader}>
+        <Logo />
+        <ThemeMenu />
+      </div>
       <div className={css.sidebarWrapper}>
         <h1 className={css.title}>Hi!👋</h1>
         <p className={css.text}>Welcome to MacPaw Bootcamp 2023</p>

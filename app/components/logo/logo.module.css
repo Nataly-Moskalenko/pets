@@ -1,6 +1,10 @@
-.logo {
-  margin-top: 30px;
+.logo {  
   display: flex;
   gap: 8px;
   align-items: center;
+  fill: '#1D1D1D';
+}
+
+[data-theme='dark'] .logo {
+  fill: white;
 }

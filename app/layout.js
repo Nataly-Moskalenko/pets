@@ -1,6 +1,9 @@
+'use client';
+
 import './globals.css';
 import { Jost } from 'next/font/google';
 import Sidebar from './components/sidebar/sidebar';
+import { ThemeProvider } from 'next-themes';
 
 const jost = Jost({ subsets: ['latin'] });
 
@@ -13,8 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={jost.className} style={{ display: 'flex' }}>
-        <Sidebar />
-        <main style={{ marginLeft: 'auto' }}>{children}</main>
+        <ThemeProvider>
+          <Sidebar />
+          <main style={{ marginLeft: 'auto' }}>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

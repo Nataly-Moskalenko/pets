@@ -23,7 +23,7 @@
   line-height: 30px;
   border-radius: 20px;
   background-color: #fff;
-  border: 2px solid #fff;
+  border: none;
 }
 
 .input:hover {
@@ -66,6 +66,7 @@
   background-color: #fbe0dc;
 }
 
+[data-theme='dark'] .active .svgLink,
 .active .svgLink {
   width: 60px;
   height: 60px;
@@ -78,6 +79,24 @@
 .active svg {
   fill: white;
 }
+
 .link svg {
   fill: #ff868e;
+}
+
+[data-theme='dark'] .input,
+[data-theme='dark'] .svgLink {
+  background-color: #ffffff0d;
+}
+
+[data-theme='dark'] .buttonInput {
+  background-color: #ff868e33;
+}
+
+[data-theme='dark'] .input:hover {
+  border: 2px solid #ff868e33;
+}
+
+[data-theme='dark'] .link:hover .svgLink {
+  background-color: #ff868e33;
 }

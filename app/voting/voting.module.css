@@ -10,9 +10,7 @@
   margin-top: 10px;
   border-radius: 20px;
   background: #fff;
-  width: 680px;
-  /* height: calc(100vh - 130px); */
-  /* height: 770px; */
+  width: 680px;  
   padding: 20px;
 }
 
@@ -124,4 +122,18 @@
 
 .loaderWrapper {
   margin: 100px 300px;
+}
+
+[data-theme='dark'] .buttonArrow {
+  background-color: #ff868e33;
+}
+
+[data-theme='dark'] .votingMain {
+  background-color: #ffffff0d;
+}
+
+[data-theme='dark'] .buttonLike,
+[data-theme='dark'] .buttonDislike,
+[data-theme='dark'] .buttonFav {
+  border: 4px solid #282828;
 }

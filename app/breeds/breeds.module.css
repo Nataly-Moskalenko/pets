@@ -1,5 +1,5 @@
 .breeds {
-  width: 775px;
+  width: 775px;  
   padding-top: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
@@ -8,7 +8,7 @@
 .breedsMain {
   margin-top: 10px;
   border-radius: 20px;
-  background: #fff;
+  background-color: #fff;
   width: 680px;
   padding: 20px;
 }
@@ -168,4 +168,12 @@
 
 .loaderWrapper {
   margin: 100px 300px;
+}
+
+[data-theme='dark'] .buttonArrow {
+  background-color: #ff868e33;
+}
+
+[data-theme='dark'] .breedsMain {
+  background-color: #ffffff0d;
 }

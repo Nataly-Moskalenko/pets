@@ -6,6 +6,10 @@
   background-color: #fbe0dc; 
 }
 
+[data-theme='dark'] .homeInner {
+  background-color: #ffffff0d;
+}
+
 .homeImage {
   position: absolute;
   right: 0;

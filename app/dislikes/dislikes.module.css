@@ -1,6 +1,6 @@
 .breeds {
   width: 775px;
-  /* height: 100vh; */
+  height: 100vh;
   padding-top: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
@@ -11,7 +11,6 @@
   border-radius: 20px;
   background: #fff;
   width: 680px;
-  height: calc(100vh - 130px);
   padding: 20px;
 }
 
@@ -280,4 +279,13 @@
   background: #f8f8f7;
   padding-left: 20px;
   padding-top: 15px;
+}
+
+[data-theme='dark'] .buttonArrow {
+  background-color: #ff868e33;
+}
+
+[data-theme='dark'] .breedsMain,
+[data-theme='dark'] .default {
+  background-color: #ffffff0d;
 }

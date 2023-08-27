@@ -9,10 +9,10 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  cursor: pointer;  
+  cursor: pointer;
   padding-left: 10px;
   text-align: left;
-  border: 2px solid #f8f8f7;
+  border: none;
 }
 
 .menuButton:hover {
@@ -39,11 +39,25 @@
   gap: 12px;
 }
 
-.itemsMenu {  
+.itemsMenu {
   height: 0;
   overflow: hidden;
 }
 
 .menuWrapper {
   position: relative;
+}
+
+[data-theme='dark'] .menuButton {
+  background-color: #ffffff0d;
+  color: white;
+}
+
+[data-theme='dark'] .menuButton:hover {
+  border: 2px solid #ff868e33;
+}
+
+[data-theme='dark'] .itemsMenuOpen {
+  background-color: #1d1d1d;
+  color: white;
 }

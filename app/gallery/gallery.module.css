@@ -1,6 +1,5 @@
 .breeds {
   width: 775px;
-  /* height: 100vh; */
   padding-top: 30px;
   padding-right: 30px;
   padding-bottom: 30px;
@@ -59,6 +58,7 @@
   margin-top: 18px;
 }
 
+[data-theme='dark'] .actionButton:hover,
 .actionButton:hover {
   background-color: #ff868e;
   fill: white;
@@ -306,4 +306,14 @@
   font-weight: 500;
   line-height: 18px; /* 180% */
   text-transform: uppercase;
+}
+
+[data-theme='dark'] .buttonArrow {
+  background-color: #ff868e33;
+}
+
+[data-theme='dark'] .breedsMain,
+[data-theme='dark'] .actionButton,
+[data-theme='dark'] .allMenuWrapper {
+  background-color: #ffffff0d;
 }
