@@ -13,6 +13,11 @@
   border: none;
   padding-left: 10px;
   text-align: left;
+  border: 2px solid #f8f8f7;
+}
+
+.menuButton:hover {
+  border: 2px solid #fbe0dc;
 }
 
 .breedsMenuOpen {

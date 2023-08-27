@@ -27,6 +27,13 @@
   border-radius: 10px;
   background-color: #fbe0dc;
   border: none;
+  padding: 10px;
+  fill: #ff868e;
+}
+
+.buttonArrow:hover {
+  background-color: #ff868e;
+  fill: white;
 }
 
 .title {
@@ -72,6 +79,12 @@
   border: 4px solid white;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
+  fill: white;
+}
+
+.buttonLike:hover { 
+  background-color: #cbf1db;  
+  fill: #97eab9;
 }
 
 .buttonFav {
@@ -81,6 +94,17 @@
   border: 4px solid white;
   border-left: none;
   border-right: none;
+  fill: white;
+}
+
+.buttonFav:hover {  
+  background-color: #f9c3c7;  
+  fill: #ff868e;
+}
+
+.buttonFav:focus {  
+  background-color: #ff868e;  
+  fill: white; 
 }
 
 .buttonDislike {
@@ -90,6 +114,12 @@
   border: 4px solid white;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  fill: white;
+}
+
+.buttonDislike:hover { 
+  background-color: #fce9c8;  
+  fill: #ffd280;
 }
 
 .loaderWrapper {

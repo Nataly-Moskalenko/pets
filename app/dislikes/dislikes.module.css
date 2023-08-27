@@ -26,6 +26,13 @@
   border-radius: 10px;
   background-color: #fbe0dc;
   border: none;
+  padding: 10px;
+  fill: #ff868e;
+}
+
+.buttonArrow:hover {
+  background-color: #ff868e;
+  fill: white;
 }
 
 .title {
@@ -93,6 +100,56 @@
   width: 200px;
   height: 140px;
 }
+.div11 {
+  grid-area: 7 / 1 / 9 / 2;
+  width: 200px;
+  height: 300px;
+}
+.div12 {
+  grid-area: 7 / 2 / 8 / 3;
+  width: 200px;
+  height: 140px;
+}
+.div13 {
+  grid-area: 7 / 3 / 8 / 4;
+  width: 200px;
+  height: 140px;
+}
+.div14 {
+  grid-area: 8 / 2 / 10 / 4;
+  width: 420px;
+  height: 300px;
+}
+.div15 {
+  grid-area: 9 / 1 / 10 / 2;
+  width: 200px;
+  height: 140px;
+}
+.div16 {
+  grid-area: 10 / 1 / 11 / 2;
+  width: 200px;
+  height: 140px;
+}
+.div17 {
+  grid-area: 10 / 2 / 11 / 3;
+  width: 200px;
+  height: 140px;
+}
+.div18 {
+  grid-area: 10 / 3 / 12 / 4;
+  width: 200px;
+  height: 300px;
+}
+.div19 {
+  grid-area: 11 / 1 / 13 / 3;
+  width: 420px;
+  height: 300px;
+}
+.div20 {
+  grid-area: 12 / 3 / 14 / 4;
+  width: 200px;
+  height: 140px;
+}
 
 .image {
   width: 100%;
@@ -117,7 +174,7 @@
   line-height: 24px; /* 150% */
 
   width: 640px;
-  height: 60px; 
+  height: 60px;
   border-radius: 10px;
   background: #f8f8f7;
   padding-left: 20px;

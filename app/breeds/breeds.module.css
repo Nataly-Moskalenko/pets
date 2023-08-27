@@ -24,6 +24,13 @@
   border-radius: 10px;
   background-color: #fbe0dc;
   border: none;
+  padding: 10px;
+  fill: #ff868e;
+}
+
+.buttonArrow:hover {
+  background-color: #ff868e;
+  fill: white;
 }
 
 .title {

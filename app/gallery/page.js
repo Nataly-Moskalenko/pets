@@ -17,9 +17,9 @@ export default function Gallery() {
   const [query, setQuery] = useState('');
   const router = useRouter();
   const [limit, setLimit] = useState('5');
-  const [breedName, setBreedName] = useState('');
+  const [breedActive, setBreedActive] = useState('');
   const [order, setOrder] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('jpg,png');
   const [loading, setLoading] = useState(false);
   const items = ['5 items per page', '10 items per page', '15 items per page', '20 items per page'];
 
@@ -31,10 +31,14 @@ export default function Gallery() {
         const response = await fetch(
           'https://api.thecatapi.com/v1/images/search?limit=' +
             limit +
+            '&breeds_id=' +
+            breedActive.id +
             '&name=' +
-            breedName +
+            query +
             '&order=' +
             order +
+            '&mime_types=' +
+            type +
             '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
         );
         const data = await response.json();
@@ -47,17 +51,16 @@ export default function Gallery() {
     }
 
     fetchBreeds();
-  }, [limit, breedName, order]);
+  }, [limit, breedActive, order, query, type]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
   };
 
   const breedsMenuData = (data) => {
-    setBreedName(data);
+    setBreedActive(data[0]);
   };
 
   const itemsMenuData = (data) => {
@@ -69,7 +72,13 @@ export default function Gallery() {
   };
 
   const typeMenuData = (data) => {
-    setType(data);
+    if (data === 'All') {
+      setType('jpg,gif,png');
+    } else if (data === 'Static') {
+      setType('jpg,png');
+    } else if (data === 'Animated') {
+      setType('gif');
+    }
   };
 
   return (
@@ -78,23 +87,29 @@ export default function Gallery() {
       <div className={css.breedsMain}>
         <div className={css.breedsMainWrapper}>
           <button type="button" className={css.buttonArrow} onClick={() => router.back()}>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path
-                d="M4.70999 10.9901L13.3097 19.5896C13.8567 20.1369 14.7437 20.1369 15.2905 19.5896C15.8373 19.0427 15.8373 18.1558 15.2905 17.6091L7.68104 9.99988L15.2902 2.39096C15.8371 1.84391 15.8371 0.957107 15.2902 0.410284C14.7434 -0.136761 13.8565 -0.136761 13.3095 0.410284L4.70977 9.00985C4.43635 9.28339 4.2998 9.64153 4.2998 9.99983C4.2998 10.3583 4.43662 10.7167 4.70999 10.9901Z"
-                fill="#FF868E"
-              />
-              <defs>
-                <rect width="20" height="20" fill="white" />
-              </defs>
+            <svg width="20" height="20" viewBox="0 0 20 20">
+              <path d="M4.70999 10.9901L13.3097 19.5896C13.8567 20.1369 14.7437 20.1369 15.2905 19.5896C15.8373 19.0427 15.8373 18.1558 15.2905 17.6091L7.68104 9.99988L15.2902 2.39096C15.8371 1.84391 15.8371 0.957107 15.2902 0.410284C14.7434 -0.136761 13.8565 -0.136761 13.3095 0.410284L4.70977 9.00985C4.43635 9.28339 4.2998 9.64153 4.2998 9.99983C4.2998 10.3583 4.43662 10.7167 4.70999 10.9901Z" />
             </svg>
           </button>
           <h2 className={css.title}>Gallery</h2>
         </div>
         <div className={css.allMenuWrapper}>
-          <OrderMenu setter={orderMenuData} />
-          <TypeMenu setter={typeMenuData} />
-          <BreedsMenuGallery setter={breedsMenuData} menuText="None" />
-          <ItemsMenuGallery setter={itemsMenuData} items={items} itemText="5 items per page" />
+          <div>
+            <p className={css.text}>Order</p>
+            <OrderMenu setter={orderMenuData} />
+          </div>
+          <div>
+            <p className={css.text}>Type</p>
+            <TypeMenu setter={typeMenuData} />
+          </div>
+          <div>
+            <p className={css.text}>Breed</p>
+            <BreedsMenuGallery setter={breedsMenuData} menuText="None" />
+          </div>
+          <div>
+            <p className={css.text}>Limit</p>
+            <ItemsMenuGallery setter={itemsMenuData} items={items} itemText="5 items per page" />
+          </div>
         </div>
 
         {loading && (

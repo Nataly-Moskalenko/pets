@@ -25,6 +25,13 @@
   border-radius: 10px;
   background-color: #fbe0dc;
   border: none;
+  padding: 10px;
+  fill: #ff868e;
+}
+
+.buttonArrow:hover {
+  background-color: #ff868e;
+  fill: white;
 }
 
 .title {
@@ -174,4 +181,13 @@
 
 .loaderWrapper {
   margin: 100px 300px;
+}
+
+.text {
+  padding-left: 10px;
+  color: #8c8c8c;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 18px; /* 180% */
+  text-transform: uppercase;
 }
