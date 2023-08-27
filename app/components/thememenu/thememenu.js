@@ -2,7 +2,7 @@ import { useTheme } from 'next-themes';
 import css from './thememenu.module.css';
 
 export const ThemeMenu = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme('light');
 
   return (
     <div>
