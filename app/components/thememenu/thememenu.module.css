@@ -1,7 +1,10 @@
 .themeButton {
+  background-color: inherit;
+  border: none;
+}
+
+.themeSvg {
   display: flex;
   align-items: center;
   gap: 8px;
-  background-color: inherit;
-  border: none;
 }
