@@ -6,10 +6,11 @@ import { useRouter } from 'next/navigation';
 
 import css from './gallery.module.css';
 import Header from '../components/header/header';
-import { BreedsMenu } from '../components/breedsmenu/breedsmenu';
-import { ItemsMenu } from '../components/itemsmenu/itemsmenu';
+import Loader from '../components/loader/loader';
+import { BreedsMenuGallery } from '../components/breedsmenuGallery/breedsmenuGallery';
 import { OrderMenu } from '../components/ordermenu/ordermenu';
 import { TypeMenu } from '../components/typemenu/typemenu';
+import { ItemsMenuGallery } from '../components/itemsmenuGallery/itemsmenuGallery';
 
 export default function Gallery() {
   const [pets, setPets] = useState([]);
@@ -19,10 +20,13 @@ export default function Gallery() {
   const [breedName, setBreedName] = useState('');
   const [order, setOrder] = useState('');
   const [type, setType] = useState('');
+  const [loading, setLoading] = useState(false);
   const items = ['5 items per page', '10 items per page', '15 items per page', '20 items per page'];
 
   useEffect(() => {
     async function fetchBreeds() {
+      setLoading(true);
+      setPets(null);
       try {
         const response = await fetch(
           'https://api.thecatapi.com/v1/images/search?limit=' +
@@ -37,6 +41,8 @@ export default function Gallery() {
         setPets(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -85,21 +91,21 @@ export default function Gallery() {
           <h2 className={css.title}>Gallery</h2>
         </div>
         <div className={css.allMenuWrapper}>
-          <div className={css.menuItem}>
-            <OrderMenu setter={orderMenuData} />
-          </div>
-          <div className={css.menuItem}>
-            <TypeMenu setter={typeMenuData} />
-          </div>
-          <div className={css.menuItem}>
-            <BreedsMenu setter={breedsMenuData} menuText="None" />
-          </div>
-          <div className={css.menuItem}>
-            <ItemsMenu setter={itemsMenuData} items={items} itemText="5 items per page" />
-          </div>          
+          <OrderMenu setter={orderMenuData} />
+          <TypeMenu setter={typeMenuData} />
+          <BreedsMenuGallery setter={breedsMenuData} menuText="None" />
+          <ItemsMenuGallery setter={itemsMenuData} items={items} itemText="5 items per page" />
         </div>
+
+        {loading && (
+          <div className={css.loaderWrapper}>
+            <Loader />
+          </div>
+        )}
+
         <div className={css.parent}>
-          {pets &&
+          {!loading &&
+            pets &&
             pets.map((pet, i) => (
               <div key={i + 1} className={css['div' + (i + 1)]}>
                 <Image src={pet.url} alt="cat" width={420} height={300} className={css.image} />

@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import css from './breeds.module.css';
 import Header from '../components/header/header';
+import Loader from '../components/loader/loader';
 import { BreedsMenu } from '../components/breedsmenu/breedsmenu';
 import { ItemsMenu } from '../components/itemsmenu/itemsmenu';
 
@@ -14,31 +15,38 @@ export default function Breeds() {
   const [query, setQuery] = useState('');
   const router = useRouter();
   const [limit, setLimit] = useState('10');
-  const [breedName, setBreedName] = useState('');
+  const [breedActive, setBreedActive] = useState('');
+  const [loading, setLoading] = useState(false);
   const items = ['Limit: 5', 'Limit: 10', 'Limit: 15', 'Limit: 20'];
-
+  
   useEffect(() => {
     async function fetchBreeds() {
+      setLoading(true);
+      setPets(null);
       try {
         const response = await fetch(
           'https://api.thecatapi.com/v1/images/search?limit=' +
             limit +
+            '&breeds_id=' +
+            breedActive.id +
             '&name=' +
-            breedName +
+            query +
             '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
         );
         const data = await response.json();
         setPets(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     }
 
     fetchBreeds();
-  }, [limit, breedName]);
+  }, [limit, breedActive, query]);
 
   const breedsMenuData = (data) => {
-    setBreedName(data);
+    setBreedActive(data[0]);
   };
 
   const itemsMenuData = (data) => {
@@ -48,7 +56,6 @@ export default function Breeds() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
   };
 
@@ -72,8 +79,16 @@ export default function Breeds() {
           <BreedsMenu setter={breedsMenuData} menuText="All breeds" />
           <ItemsMenu setter={itemsMenuData} items={items} itemText="Limit: 10" />
         </div>
+
+        {loading && (
+          <div className={css.loaderWrapper}>
+            <Loader />
+          </div>
+        )}
+
         <div className={css.parent}>
-          {pets &&
+          {!loading &&
+            pets &&
             pets.map((pet, i) => (
               <div key={i + 1} className={css['div' + (i + 1)]}>
                 <Image src={pet.url} alt="cat" width={420} height={300} className={css.image} />

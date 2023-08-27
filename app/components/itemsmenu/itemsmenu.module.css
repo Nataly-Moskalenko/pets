@@ -1,10 +1,12 @@
 .menuButton {
+  position: relative;
+  z-index: 0;
   width: 101px;
   height: 40px;
   border-radius: 10px;
   background-color: #f8f8f7;
-  color: #8c8c8c; 
-  font-size: 16px; 
+  color: #8c8c8c;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   cursor: pointer;
@@ -14,29 +16,30 @@
 }
 
 .itemsMenuOpen {
-  position: absolute; 
-  top: 0px; 
+  z-index: 777;
+  position: absolute;
+  top: 0px;
   width: 164px;
   height: 164px;
   border-radius: 30px;
   background-color: #fff;
   color: #8c8c8c;
-  font-size: 16px;  
+  font-size: 16px;
   font-weight: 400;
-  line-height: 24px; 
+  line-height: 24px;
   cursor: pointer;
-  overflow: auto;  
+  overflow: auto;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.itemsMenu {
+.itemsMenu {  
   height: 0;
   overflow: hidden;
 }
 
-.menuWrapper { 
+.menuWrapper {
   position: relative;
 }

@@ -15,12 +15,12 @@
   text-align: left;
 }
 
-.itemsMenuOpen {
+.breedsMenuOpen {
   z-index: 777;
   position: absolute;
   top: 0px;
-  width: 164px;
-  height: 164px;
+  width: 226px;
+  height: 300px;
   border-radius: 30px;
   background-color: #fff;
   color: #8c8c8c;
@@ -35,10 +35,15 @@
   gap: 12px;
 }
 
-.itemsMenu {
+.breedsMenu {
   height: 0;
   overflow: hidden;
 }
+
+.menuWrapper {
+  position: relative;
+}
+
 
 .menuWrapper {
   position: relative;

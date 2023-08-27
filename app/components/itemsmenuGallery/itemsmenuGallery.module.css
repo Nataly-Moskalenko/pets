@@ -35,7 +35,7 @@
   gap: 12px;
 }
 
-.itemsMenu {
+.itemsMenu {  
   height: 0;
   overflow: hidden;
 }

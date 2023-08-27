@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import css from './breedsmenu.module.css';
+import css from './breedsmenuGallery.module.css';
 
-export const BreedsMenu = ({ setter, menuText }) => {
+export const BreedsMenuGallery = ({ setter, menuText }) => {
   const [breedsOption, setBreedsOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [breeds, setBreeds] = useState([]);
-  const [breedActive, setBreedActive] = useState(null);
 
   useEffect(() => {
     async function getBreeds() {
@@ -19,20 +18,19 @@ export const BreedsMenu = ({ setter, menuText }) => {
     }
 
     getBreeds();
-  }, []);  
+  }, []);
 
   const handleBreedsChange = (event) => {
     event.stopPropagation();
     setBreedsOption(event.target.innerText);
-    setBreedActive(breeds.filter(item => item.name === event.target.innerText));
-    setter(breeds.filter(item => item.name === event.target.innerText));
+    setter(event.target.innerText);
     setIsOpen(false);
   };
 
   const handleClick = (event) => {
     event.stopPropagation();
     setIsOpen(!isOpen);
-  }; 
+  };
 
   return (
     <div className={css.menuWrapper}>
