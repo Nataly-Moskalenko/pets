@@ -21,6 +21,7 @@ export default function Gallery() {
   const [order, setOrder] = useState('');
   const [type, setType] = useState('jpg,png');
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState('2');
   const items = ['5 items per page', '10 items per page', '15 items per page', '20 items per page'];
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Gallery() {
             order +
             '&mime_types=' +
             type +
-            '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+            '&page=1&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
         );
         const data = await response.json();
         setPets(data);
@@ -81,6 +82,34 @@ export default function Gallery() {
     }
   };
 
+  async function fetchNewPats() {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        'https://api.thecatapi.com/v1/images/search?limit=' +
+          limit +
+          '&breeds_id=' +
+          breedActive.id +
+          '&name=' +
+          query +
+          '&order=' +
+          order +
+          '&mime_types=' +
+          type +
+          '&page=' +
+          page +
+          '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+      );
+      const data = await response.json();
+      setPets([...pets].concat(...data));
+      setPage(page + 1);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className={css.breeds}>
       <Header handleSubmit={handleSubmit} />
@@ -110,6 +139,11 @@ export default function Gallery() {
             <p className={css.text}>Limit</p>
             <ItemsMenuGallery setter={itemsMenuData} items={items} itemText="5 items per page" />
           </div>
+          <button type="button" onClick={fetchNewPats} className={css.actionButton}>
+            <svg width="18" height="20" viewBox="0 0 18 20">
+              <path d="M8.48189 2.49989L6.93396 0.953004L7.88633 0L11.0577 3.16928L7.88634 6.33873L6.93395 5.38576L8.47232 3.84832C4.51244 3.99813 1.3473 7.25498 1.3473 11.2478C1.3473 15.3361 4.66547 18.6527 8.75744 18.6527C12.8494 18.6527 16.1676 15.3361 16.1676 11.2478V10.5742H17.5149V11.2478C17.5149 16.081 13.5927 20 8.75744 20C3.92221 20 0 16.081 0 11.2478C0 6.50682 3.77407 2.64542 8.48189 2.49989Z" />
+            </svg>
+          </button>
         </div>
 
         {loading && (

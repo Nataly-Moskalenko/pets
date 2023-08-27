@@ -44,20 +44,26 @@ export default function VotingLayout() {
   }, []);
 
   const onClickLikes = () => {
-    likes.push(pets);
-    localStorage.setItem('likes', JSON.stringify(likes));
+    if (!likes.find((card) => card.id === pets.id)) {
+      likes.push(pets);
+      localStorage.setItem('likes', JSON.stringify(likes));
+    }
     setIsFocus(false);
   };
 
   const onClickDislikes = () => {
-    dislikes.push(pets);
-    localStorage.setItem('dislikes', JSON.stringify(dislikes));
+    if (!dislikes.find((card) => card.id === pets.id)) {
+      dislikes.push(pets);
+      localStorage.setItem('dislikes', JSON.stringify(dislikes));
+    }
     setIsFocus(false);
   };
 
   const onClickFav = () => {
-    fav.push(pets);
-    localStorage.setItem('fav', JSON.stringify(fav));
+    if (!fav.find((card) => card.id === pets.id)) {
+      fav.push(pets);
+      localStorage.setItem('fav', JSON.stringify(fav));
+    }
     setIsFocus(true);
   };
 

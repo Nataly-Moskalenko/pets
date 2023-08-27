@@ -4,6 +4,7 @@ import css from './breedsmenuGallery.module.css';
 export const BreedsMenuGallery = ({ setter, menuText }) => {
   const [breedsOption, setBreedsOption] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [breedActive, setBreedActive] = useState(null);
   const [breeds, setBreeds] = useState([]);
 
   useEffect(() => {
@@ -23,7 +24,8 @@ export const BreedsMenuGallery = ({ setter, menuText }) => {
   const handleBreedsChange = (event) => {
     event.stopPropagation();
     setBreedsOption(event.target.innerText);
-    setter(event.target.innerText);
+    setBreedActive(breeds.filter(item => item.name === event.target.innerText));
+    setter(breeds.filter(item => item.name === event.target.innerText));
     setIsOpen(false);
   };
 
