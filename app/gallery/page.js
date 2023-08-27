@@ -21,7 +21,7 @@ export default function Gallery() {
   const [order, setOrder] = useState('');
   const [type, setType] = useState('jpg,png');
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState('2');
+  const [page, setPage] = useState('1');
   const items = ['5 items per page', '10 items per page', '15 items per page', '20 items per page'];
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Gallery() {
             order +
             '&mime_types=' +
             type +
-            '&page=1&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+            '&page=0&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
         );
         const data = await response.json();
         setPets(data);
