@@ -24,8 +24,8 @@ export const BreedsMenuGallery = ({ setter, menuText }) => {
   const handleBreedsChange = (event) => {
     event.stopPropagation();
     setBreedsOption(event.target.innerText);
-    setBreedActive(breeds.filter(item => item.name === event.target.innerText));
-    setter(breeds.filter(item => item.name === event.target.innerText));
+    setBreedActive(breeds.filter((item) => item.name === event.target.innerText));
+    setter(breeds.filter((item) => item.name === event.target.innerText));
     setIsOpen(false);
   };
 
@@ -36,7 +36,7 @@ export const BreedsMenuGallery = ({ setter, menuText }) => {
 
   return (
     <div className={css.menuWrapper}>
-      <button className={css.menuButton} onClick={handleClick}>
+      <button className={css.menuButton} onClick={handleClick} type="button">
         {breedsOption === '' ? menuText : breedsOption}
       </button>
 

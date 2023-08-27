@@ -3,7 +3,7 @@ import css from './itemsmenu.module.css';
 
 export const ItemsMenu = ({ setter, items, itemText }) => {
   const [itemsOption, setItemsOption] = useState('');
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleItemsChange = (event) => {
     event.stopPropagation();
@@ -19,7 +19,7 @@ export const ItemsMenu = ({ setter, items, itemText }) => {
 
   return (
     <div className={css.menuWrapper}>
-      <button className={css.menuButton} onClick={handleClick}>
+      <button className={css.menuButton} onClick={handleClick} type="button">
         {itemsOption === '' ? itemText : itemsOption}
       </button>
 

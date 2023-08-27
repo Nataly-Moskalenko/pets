@@ -20,7 +20,7 @@ export const TypeMenu = ({ setter }) => {
 
   return (
     <div className={css.menuWrapper}>
-      <button className={css.menuButton} onClick={handleClick}>
+      <button className={css.menuButton} onClick={handleClick} type="button">
         {itemsOption === '' ? 'Static' : itemsOption}
       </button>
 

@@ -19,24 +19,24 @@ export const BreedsMenu = ({ setter, menuText }) => {
     }
 
     getBreeds();
-  }, []);  
+  }, []);
 
   const handleBreedsChange = (event) => {
     event.stopPropagation();
     setBreedsOption(event.target.innerText);
-    setBreedActive(breeds.filter(item => item.name === event.target.innerText));
-    setter(breeds.filter(item => item.name === event.target.innerText));
+    setBreedActive(breeds.filter((item) => item.name === event.target.innerText));
+    setter(breeds.filter((item) => item.name === event.target.innerText));
     setIsOpen(false);
   };
 
   const handleClick = (event) => {
     event.stopPropagation();
     setIsOpen(!isOpen);
-  }; 
+  };
 
   return (
     <div className={css.menuWrapper}>
-      <button className={css.menuButton} onClick={handleClick}>
+      <button className={css.menuButton} onClick={handleClick} type="button">
         {breedsOption === '' ? menuText : breedsOption}
       </button>
 

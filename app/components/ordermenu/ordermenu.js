@@ -20,7 +20,7 @@ export const OrderMenu = ({ setter }) => {
 
   return (
     <div className={css.menuWrapper}>
-      <button className={css.menuButton} onClick={handleClick}>
+      <button className={css.menuButton} onClick={handleClick} type="button">
         {itemsOption === '' ? 'Random' : itemsOption}
       </button>
 

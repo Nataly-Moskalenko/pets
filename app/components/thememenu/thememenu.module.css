@@ -1,10 +1,12 @@
 .themeButton {
   background-color: inherit;
   border: none;
-}
-
-.themeSvg {
   display: flex;
   align-items: center;
+  gap: 8px;
+}
+
+.themeMenu {
+  display: flex; 
   gap: 8px;
 }

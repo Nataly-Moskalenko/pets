@@ -4,7 +4,7 @@ import Image from 'next/image';
 import css from './sidebar.module.css';
 import Logo from '../logo/logo';
 import Link from 'next/link';
-import { ThemeMenu } from '../thememenu/thememenu';
+import ThemeMenu from '../thememenu/thememenu';
 import { usePathname } from 'next/navigation';
 
 export default function Sidebar() {
