@@ -1,0 +1,26 @@
+.sidebar {
+  display: none;
+}
+
+.main {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+} 
+
+.children {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    display: block;
+  } 
+  .main {
+    display: flex;
+  }
+  .children {
+    margin-right: 0;
+    margin-left: auto;
+  } 
+}

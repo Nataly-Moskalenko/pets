@@ -2,6 +2,7 @@ import './globals.css';
 import { Jost } from 'next/font/google';
 import Sidebar from './components/sidebar/sidebar';
 import { Providers } from './components/providers/providers';
+import css from './layout.module.css';
 
 const jost = Jost({ subsets: ['latin'] });
 
@@ -13,13 +14,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head/>
-      <body className={jost.className} style={{ display: 'flex' }}>
-        <Providers>
-          <Sidebar />
-          <main style={{ marginLeft: 'auto' }}>{children}</main>
-        </Providers>
-      </body>
+      <head />
+      <Providers>
+        <body className={jost.className} style={{ display: "block" }}>
+          <main className={css.main}>
+            <div className={css.sidebar}><Sidebar /></div>            
+            <div className={css.children}>{children}</div>
+          </main>
+        </body>
+      </Providers>
     </html>
   );
 }

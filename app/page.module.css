@@ -1,9 +1,21 @@
+.home {
+  display: none;  
+}
+
+@media screen and (min-width: 1440px) {
+  .home {
+    position: relative;
+    display: block;
+    /* margin-left: auto; */
+  }
+}
+
 .homeInner { 
   width: 680px;
   height: 840px;
   border-radius: 20px;
   margin: 30px 30px 30px 65px;
-  background-color: #fbe0dc; 
+  background-color: #fbe0dc;  
 }
 
 [data-theme='dark'] .homeInner {

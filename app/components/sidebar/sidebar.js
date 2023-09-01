@@ -16,9 +16,8 @@ export default function Sidebar() {
         <ThemeMenu />
       </div>
       <div className={css.sidebarWrapper}>
-        <h1 className={css.title}>Hi!👋</h1>
-        <p className={css.text}>Welcome to MacPaw Bootcamp 2023</p>
-        <h2 className={css.subtitle}>Lets start using The Cat API</h2>
+        <p className={css.subtitle}>Hi!👋</p>        
+        <h1 className={css.title}>Lets start using The Cat API</h1>
         <nav className={css.nav}>
           <button type="button" className={css.sidebarButton}>
             <Link href="/voting" className={'/voting' === pathname ? css.active : css.link}>
