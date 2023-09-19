@@ -30,7 +30,7 @@ export default function Gallery() {
       setPets(null);
       try {
         const response = await fetch(
-          'https://api.thecatapi.com/v1/images/search?limit=' +
+          `https://api.thecatapi.com/v1/images/search?limit=` +
             limit +
             '&breeds_id=' +
             breedActive.id +
@@ -40,7 +40,7 @@ export default function Gallery() {
             order +
             '&mime_types=' +
             type +
-            '&page=0&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+            `&page=0&api_key=${process.env.API_KEY}`
         );
         const data = await response.json();
         setPets(data);
@@ -98,7 +98,7 @@ export default function Gallery() {
           type +
           '&page=' +
           page +
-          '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+          `&api_key=${process.env.API_KEY}`
       );
       const data = await response.json();
       setPets([...pets].concat(...data));

@@ -15,14 +15,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <Providers>
-        <body className={jost.className} style={{ display: "block" }}>
+      <body className={jost.className} style={{ display: 'block' }}>
+        <Providers>
           <main className={css.main}>
-            <div className={css.sidebar}><Sidebar /></div>            
+            <div className={css.sidebar}>
+              <Sidebar />
+            </div>
             <div className={css.children}>{children}</div>
           </main>
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }

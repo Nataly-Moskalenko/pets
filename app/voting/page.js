@@ -74,7 +74,6 @@ export default function VotingLayout() {
       try {
         const response = await fetch(`https://api.thecatapi.com/v1/images/search?query={query}`);
         const data = await response.json();
-        console.log(data);
         setPets(data[0]);
       } catch (error) {
         console.log(error);
@@ -89,7 +88,6 @@ export default function VotingLayout() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    console.log(form.elements.query.value);
     setQuery(form.elements.query.value);
   };
 

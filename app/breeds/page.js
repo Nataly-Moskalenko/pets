@@ -25,13 +25,13 @@ export default function Breeds() {
       setPets(null);
       try {
         const response = await fetch(
-          'https://api.thecatapi.com/v1/images/search?limit=' +
+          `https://api.thecatapi.com/v1/images/search?limit=` +
             limit +
             '&breeds_id=' +
             breedActive.id +
             '&name=' +
             query +
-            '&api_key=live_tLhrECeCPhKCsKbbSHZ7fTRTr2YzUzxP69fjnFX0m5dFO5zQPjwVttHMrEu147tV'
+            `&api_key=${process.env.API_KEY}`
         );
         const data = await response.json();
         setPets(data);
