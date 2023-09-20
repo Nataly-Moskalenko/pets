@@ -77,7 +77,7 @@ export default function VotingLayout() {
       setLoading(true);
       setPets(null);
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}?query={query}`);
+        const response = await fetch(`https://api.thecatapi.com/v1/images/search?query={query}`);
         const data = await response.json();
         setPets(data[0]);
       } catch (error) {

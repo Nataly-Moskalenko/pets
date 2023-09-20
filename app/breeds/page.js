@@ -26,7 +26,7 @@ export default function Breeds() {
       setPets(null);
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_BASE_URL}?limit=` +
+          `https://api.thecatapi.com/v1/images/search?limit=` +
             limit +
             '&breeds_id=' +
             breedActive.id +
