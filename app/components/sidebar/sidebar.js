@@ -23,7 +23,7 @@ export default function Sidebar() {
             <Link href="/voting" className={'/voting' === pathname ? css.active : css.link}>
               <div className={css.vote}>
                 <Image
-                  src="/vote-table.png"
+                  src="/images/vote-table.png"
                   alt="Vote table"
                   width={100}
                   height={124}
@@ -39,7 +39,7 @@ export default function Sidebar() {
             <Link href="/breeds" className={'/breeds' === pathname ? css.active : css.link}>
               <div className={css.breeds}>
                 <Image
-                  src="/pet-breeds.png"
+                  src="/images/pet-breeds.png"
                   alt="Pet breeds"
                   width={117}
                   height={163}
@@ -55,7 +55,7 @@ export default function Sidebar() {
             <Link href="/gallery" className={'/gallery' === pathname ? css.active : css.link}>
               <div className={css.gallery}>
                 <Image
-                  src="/images-search.png"
+                  src="/images/images-search.png"
                   alt="Images search"
                   width={112}
                   height={190}

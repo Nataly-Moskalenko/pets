@@ -9,6 +9,7 @@ import Header from '../components/header/header';
 import Loader from '../components/loader/loader';
 import { BreedsMenu } from '../components/breedsmenu/breedsmenu';
 import { ItemsMenu } from '../components/itemsmenu/itemsmenu';
+import IconArrow from 'public/icons/arrow.svg';
 
 export default function Breeds() {
   const [pets, setPets] = useState([]);
@@ -25,13 +26,13 @@ export default function Breeds() {
       setPets(null);
       try {
         const response = await fetch(
-          `https://api.thecatapi.com/v1/images/search?limit=` +
+          `${process.env.NEXT_PUBLIC_BASE_URL}?limit=` +
             limit +
             '&breeds_id=' +
             breedActive.id +
             '&name=' +
             query +
-            `&api_key=${process.env.API_KEY}`
+            `&api_key=${process.env.NEXT_PUBLIC_API_KEY}`
         );
         const data = await response.json();
         setPets(data);
@@ -65,9 +66,7 @@ export default function Breeds() {
       <div className={css.breedsMain}>
         <div className={css.breedsMainWrapper}>
           <button type="button" className={css.buttonArrow} onClick={() => router.back()}>
-            <svg width="20" height="20" viewBox="0 0 20 20">
-              <path d="M4.70999 10.9901L13.3097 19.5896C13.8567 20.1369 14.7437 20.1369 15.2905 19.5896C15.8373 19.0427 15.8373 18.1558 15.2905 17.6091L7.68104 9.99988L15.2902 2.39096C15.8371 1.84391 15.8371 0.957107 15.2902 0.410284C14.7434 -0.136761 13.8565 -0.136761 13.3095 0.410284L4.70977 9.00985C4.43635 9.28339 4.2998 9.64153 4.2998 9.99983C4.2998 10.3583 4.43662 10.7167 4.70999 10.9901Z" />
-            </svg>
+            <IconArrow/>
           </button>
           <h2 className={css.title}>Breeds</h2>
           <BreedsMenu setter={breedsMenuData} menuText="All breeds" />
